@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import "./style.css"
 
 import CopyButton from "./components/CopyButton"
+import Spinner from "./components/Spinner"
 import useCardSearch from "./hooks/useCardSearch"
 
 function IndexPopup() {
@@ -33,27 +34,30 @@ function IndexPopup() {
         onClick={() => setCardName(cardNameCandidate)}>
         変換
       </button>
-      <ul className="w-full divide-slate-500 divide-y">
-        {cards.map((card, index) => (
-          <li key={`card-${index}`} className="p-1 py-2">
-            <div className="grid grid-cols-[1fr_auto] gap-2">
-              <div>
-                <p className="text-sm text-wrap font-medium text-slate-800 dark:text-slate-300 truncate">
-                  {card.name}
-                </p>
-                {card.printed_name && (
-                  <p className="text-sm text-wrap text-slate-500 dark:text-slate-400 truncate pl-2">
-                    — {card.printed_name}
+      {isLoading && <Spinner />}
+      {!isLoading && (
+        <ul className="w-full divide-slate-500 divide-y">
+          {cards.map((card, index) => (
+            <li key={`card-${index}`} className="p-1 py-2">
+              <div className="grid grid-cols-[1fr_auto] gap-2">
+                <div>
+                  <p className="text-sm text-wrap font-medium text-slate-800 dark:text-slate-300 truncate">
+                    {card.name}
                   </p>
-                )}
+                  {card.printed_name && (
+                    <p className="text-sm text-wrap text-slate-500 dark:text-slate-400 truncate pl-2">
+                      — {card.printed_name}
+                    </p>
+                  )}
+                </div>
+                <div className="flex justify-center items-center">
+                  <CopyButton copyText={card.name} />
+                </div>
               </div>
-              <div className="flex justify-center items-center">
-                <CopyButton copyText={card.name} />
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
