@@ -1,13 +1,21 @@
 import useSWRImmutable from "swr/immutable"
 import * as z from "zod"
 
-export const Card = z.object({
+const CardImageUris = z.object({
+  small: z.url(),
+  normal: z.url(),
+  large: z.url(),
+  png: z.url()
+})
+export type CardImageUris = z.infer<typeof CardImageUris>
+const Card = z.object({
   scryfall_uri: z.url(),
   name: z.string(),
-  printed_name: z.string().optional()
+  printed_name: z.string().optional(),
+  image_uris: CardImageUris.optional()
 })
 export type Card = z.infer<typeof Card>
-export const CardList = z.object({
+const CardList = z.object({
   data: z.array(Card)
 })
 export type CardList = z.infer<typeof CardList>
@@ -35,7 +43,6 @@ const useCardSearch = (name?: string): Response<Card[], any> => {
     return { cards: [], error: undefined, isLoading }
   }
 
-  console.log(response)
   const { data, error, success } = CardList.safeParse(response)
   if (!success) {
     return { cards: [], error, isLoading: false }
