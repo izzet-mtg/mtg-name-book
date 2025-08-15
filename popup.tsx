@@ -38,11 +38,11 @@ function IndexPopup() {
           <li key={`card-${index}`} className="p-1 py-2">
             <div className="grid grid-cols-[1fr_auto] gap-2">
               <div>
-                <p className="text-sm font-medium text-slate-800 dark:text-slate-300 truncate">
+                <p className="text-sm text-wrap font-medium text-slate-800 dark:text-slate-300 truncate">
                   {card.name}
                 </p>
                 {card.printed_name && (
-                  <p className="text-sm text-slate-500 dark:text-slate-400 truncate pl-2">
+                  <p className="text-sm text-wrap text-slate-500 dark:text-slate-400 truncate pl-2">
                     — {card.printed_name}
                   </p>
                 )}
