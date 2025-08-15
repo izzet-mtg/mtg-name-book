@@ -8,13 +8,14 @@ function IndexPopup() {
   const [cardNameCandidate, setCardNameCandidate] = useState("")
   const [cardName, setCardName] = useState<string>()
   const { cards, error, isLoading } = useCardSearch(cardName)
+  console.log(cards)
 
   return (
-    <div className="p-4 w-[300px] h-[400px] bg-slate-50 flex flex-col gap-2 items-center">
-      <div className="group relative rounded-2xl w-full border bg-transparent text-gray-900 shadow-sm transition focus-within:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 border-slate-300">
+    <div className="p-4 w-[300px] h-[400px] bg-slate-50 dark:bg-slate-800 flex flex-col gap-2 items-center">
+      <div className="group relative rounded-2xl w-full border bg-transparent text-slate-900 dark:text-slate-200 shadow-sm transition focus-within:shadow-md dark:border-gray-500 border-slate-300">
         <input
           type="text"
-          className="peer w-full bg-transparent outline-none placeholder:text-gray-500 px-4 py-3 text-sm pl-2 pr-2"
+          className="peer w-full bg-transparent outline-none placeholder:text-slate-500 dark:placeholder:text-slate-500 px-4 py-3 text-sm pl-2 pr-2"
           placeholder="検索"
           onInput={(event: React.FormEvent<HTMLInputElement>) =>
             setCardNameCandidate(event.currentTarget.value)
@@ -28,18 +29,18 @@ function IndexPopup() {
         />
       </div>
       <button
-        className="px-5 py-2.5 rounded-lg w-20 text-sm font-medium text-center text-slate-100 bg-slate-600 hover:bg-slate-700 focus:ring-2 focus:outline-none focus:ring-slate-400 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="px-5 py-2.5 rounded-lg w-20 text-sm font-medium text-center text-slate-100 dark:text-slate-200 bg-slate-600 hover:bg-slate-700 focus:ring-2 focus:outline-none focus:ring-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500 dark:focus:ring-slate-400"
         onClick={() => setCardName(cardNameCandidate)}>
         変換
       </button>
       <ul className="w-full divide-slate-500">
         {cards.map((card, index) => (
           <li key={`card-${index}`} className="p-1">
-            <p className="text-sm font-medium text-slate-800 truncate">
+            <p className="text-sm font-medium text-slate-800 dark:text-slate-300 truncate">
               {card.name}
             </p>
             {card.printed_name && (
-              <p className="text-sm text-slate-500 truncate pl-2">
+              <p className="text-sm text-slate-500 dark:text-slate-400 truncate pl-2">
                 — {card.printed_name}
               </p>
             )}
