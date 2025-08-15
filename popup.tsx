@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 
+import useCardSearch from "./hooks/useCardSearch"
+
 function IndexPopup() {
   const [cardNameCandidate, setCardNameCandidate] = useState("")
-  const [cardName, setCardName] = useState("")
+  const [cardName, setCardName] = useState<string>()
+  const { cards, error, isLoading } = useCardSearch(cardName)
 
   return (
     <div>
@@ -14,7 +17,12 @@ function IndexPopup() {
         }
       />
       <button onClick={() => setCardName(cardNameCandidate)}>変換</button>
-      <p>{cardName}</p>
+      {cards.map((card, index) => (
+        <div key={`card-${index}`}>
+          <p>{card.name}</p>
+          <p>{card.scryfall_uri}</p>
+        </div>
+      ))}
     </div>
   )
 }
