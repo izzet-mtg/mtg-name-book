@@ -32,12 +32,20 @@ function IndexPopup() {
         onClick={() => setCardName(cardNameCandidate)}>
         変換
       </button>
-      {cards.map((card, index) => (
-        <div key={`card-${index}`} className="w-full">
-          <p>{card.name}</p>
-          <p>{card.scryfall_uri}</p>
-        </div>
-      ))}
+      <ul className="w-full divide-slate-500">
+        {cards.map((card, index) => (
+          <li key={`card-${index}`} className="p-1">
+            <p className="text-sm font-medium text-slate-800 truncate">
+              {card.name}
+            </p>
+            {card.printed_name && (
+              <p className="text-sm text-slate-500 truncate pl-2">
+                — {card.printed_name}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

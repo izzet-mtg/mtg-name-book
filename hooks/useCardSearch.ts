@@ -3,7 +3,8 @@ import * as z from "zod"
 
 export const Card = z.object({
   scryfall_uri: z.url(),
-  name: z.string()
+  name: z.string(),
+  printed_name: z.string().optional()
 })
 export type Card = z.infer<typeof Card>
 export const CardList = z.object({
@@ -34,6 +35,7 @@ const useCardSearch = (name?: string): Response<Card[], any> => {
     return { cards: [], error: undefined, isLoading }
   }
 
+  console.log(response)
   const { data, error, success } = CardList.safeParse(response)
   if (!success) {
     return { cards: [], error, isLoading: false }
