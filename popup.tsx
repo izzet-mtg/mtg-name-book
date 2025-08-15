@@ -11,7 +11,7 @@ function IndexPopup() {
   console.log(cards)
 
   return (
-    <div className="p-4 w-[300px] h-[400px] bg-slate-50 dark:bg-slate-800 flex flex-col gap-2 items-center">
+    <div className="p-4 min-h-screen bg-slate-50 dark:bg-slate-800 flex flex-col gap-2 items-center">
       <div className="group relative rounded-2xl w-full border bg-transparent text-slate-900 dark:text-slate-200 shadow-sm transition focus-within:shadow-md dark:border-gray-500 border-slate-300">
         <input
           type="text"
