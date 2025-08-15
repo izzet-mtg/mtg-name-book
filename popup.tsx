@@ -2,14 +2,18 @@ import React, { useState } from "react"
 
 import "./style.css"
 
-import CopyButton from "./components/CopyButton"
-import Spinner from "./components/Spinner"
-import useCardSearch from "./hooks/useCardSearch"
+import CopyButton from "~components/CopyButton"
+import ErrorBox from "~components/ErrorBox"
+import Spinner from "~components/Spinner"
+import useCardSearch from "~hooks/useCardSearch"
 
 function IndexPopup() {
   const [cardNameCandidate, setCardNameCandidate] = useState("")
   const [cardName, setCardName] = useState<string>()
   const { cards, error, isLoading } = useCardSearch(cardName)
+  if (error) {
+    console.error(error)
+  }
 
   return (
     <div className="p-4 min-h-screen bg-slate-50 dark:bg-slate-800 flex flex-col gap-2 items-center">
@@ -35,7 +39,12 @@ function IndexPopup() {
         変換
       </button>
       {isLoading && <Spinner />}
-      {!isLoading && (
+      {error && (
+        <ErrorBox>
+          検索キーワードに該当するがカードが存在しないかカードの情報取得中にエラーがありました。
+        </ErrorBox>
+      )}
+      {!isLoading && !error && (
         <ul className="w-full divide-slate-500 divide-y">
           {cards.map((card, index) => (
             <li key={`card-${index}`} className="p-1 py-2">
