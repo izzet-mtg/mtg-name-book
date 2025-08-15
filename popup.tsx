@@ -2,13 +2,13 @@ import React, { useState } from "react"
 
 import "./style.css"
 
+import CopyButton from "./components/CopyButton"
 import useCardSearch from "./hooks/useCardSearch"
 
 function IndexPopup() {
   const [cardNameCandidate, setCardNameCandidate] = useState("")
   const [cardName, setCardName] = useState<string>()
   const { cards, error, isLoading } = useCardSearch(cardName)
-  console.log(cards)
 
   return (
     <div className="p-4 min-h-screen bg-slate-50 dark:bg-slate-800 flex flex-col gap-2 items-center">
@@ -48,7 +48,7 @@ function IndexPopup() {
                 )}
               </div>
               <div className="flex justify-center items-center">
-                <a href={card.scryfall_uri} target="_blank" rel="noopener noreferrer" className="px-2 py-2 rounded-lg w-15 h-10 text-sm text-align font-medium text-slate-100 dark:text-slate-200 bg-slate-600 hover:bg-slate-700 focus:ring-2 focus:outline-none focus:ring-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500 dark:focus:ring-slate-400">Scryfall</a>
+                <CopyButton copyText={card.name} />
               </div>
             </div>
           </li>
