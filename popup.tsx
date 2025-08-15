@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 
+import "./style.css"
+
 import useCardSearch from "./hooks/useCardSearch"
 
 function IndexPopup() {
