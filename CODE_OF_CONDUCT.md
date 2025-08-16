@@ -10,7 +10,7 @@ Magic: the Gathering は世界で様々な人がプレイしているため、�
 これには Issue トラッカーやコミュニティがコミュニケーションにつかうツールといったものも含まれます。
 加えて、行動規範に違反すると今後の本コミュニティへの参加が拒否されたりといった影響を与えるかもしれません。
 
-誰かが行動規範に違反していると思われる場合は [Google Form](https://forms.gle/FNLZMrzAnxNehuaP6) へ報告してください。
+誰かが行動規範に違反していると思われる場合は [Google Form](https://forms.gle/iQXxdWZs6nmzNdLWA) へ報告してください。
 
 ## 守るべき行動
 
