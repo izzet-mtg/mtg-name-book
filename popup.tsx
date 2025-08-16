@@ -4,6 +4,7 @@ import "./style.css"
 
 import CopyButton from "~components/CopyButton"
 import ErrorBox from "~components/ErrorBox"
+import Page from "~components/Page"
 import Spinner from "~components/Spinner"
 import useCardSearch from "~hooks/useCardSearch"
 
@@ -16,7 +17,7 @@ function IndexPopup() {
   }
 
   return (
-    <div className="p-4 min-h-screen bg-slate-50 dark:bg-slate-800 flex flex-col gap-2 items-center">
+    <Page>
       <div className="group relative rounded-2xl w-full border bg-transparent text-slate-900 dark:text-slate-200 shadow-sm transition focus-within:shadow-md dark:border-gray-500 border-slate-300">
         <input
           type="text"
@@ -67,7 +68,7 @@ function IndexPopup() {
           ))}
         </ul>
       )}
-    </div>
+    </Page>
   )
 }
 
