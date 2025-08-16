@@ -1,33 +1,39 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+<p align="center">
+  <img src="https://raw.githubusercontent.com/izzet-mtg/mtg-name-book/refs/heads/main/logo.svg" width="15%" />
+</p>
 
-## Getting Started
+# M:tG Name book
 
-First, run the development server:
+Magic: the Gathering のカード名を英語に変換するブラウザ拡張
+
+## 始め方
+
+以下のものがインストールされていることを確認します。
+
+- Node.js 18.18 以上
+- npm
+
+次のコマンドを実行します。
 
 ```bash
-pnpm dev
-# or
 npm run dev
 ```
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+ブラウザーを開いてビルドされた拡張機能をブラウザーに読み込みます。
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+> [!NOTE]
+> 開発には [Plasmo Framework](https://www.plasmo.com/) を利用しており、 Plasmo では ビルドされた開発向けのものは Manifest V3 + Background Script を利用しています。
+> Firefox は Background Script に非対応のため確認用に使うブラウザの推奨は Chrome です。
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+開発版は `build/chrome-mv3-dev` にあります。
 
-## Making production build
+### Production ビルド
 
-Run the following:
+次のコマンドを実行します。
 
 ```bash
-pnpm build
-# or
 npm run build
 ```
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+zip で圧縮すれば拡張機能として提供できます。
 
-## Submit to the webstores
-
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
