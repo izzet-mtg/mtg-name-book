@@ -7,8 +7,10 @@
   "author": "izzet-mtg",
   "scripts": {
     "dev": "plasmo dev",
-    "build": "plasmo build",
-    "package": "plasmo package"
+    "build": "npm run build-chrome && npm run build-firefox",
+    "package": "plasmo package",
+    "build-firefox": "plasmo build --target=firefox-mv2",
+    "build-chrome": "plasmo build"
   },
   "dependencies": {
     "lucide-react": "^0.539.0",
