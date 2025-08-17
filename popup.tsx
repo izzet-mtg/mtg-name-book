@@ -39,8 +39,8 @@ function IndexPopup() {
       <div className="flex flex-col gap-2 items-center">
         <div className="flex items-left w-full">
           <HamburgerMenu>
-            <HamburgerMenuLinkItem href="https://google.com">
-              Hello Menu
+            <HamburgerMenuLinkItem href="https://izzet-mtg.github.io/mtg-name-book-homepage/">
+              拡張について
             </HamburgerMenuLinkItem>
           </HamburgerMenu>
         </div>
