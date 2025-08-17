@@ -2,7 +2,7 @@
   "name": "mtg-name-book",
   "displayName": "Mt:G name book",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Magic: the Gathering のカード名変換拡張",
   "author": "izzet-mtg",
   "scripts": {
