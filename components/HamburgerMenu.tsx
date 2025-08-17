@@ -33,7 +33,7 @@ export default function HamburgerMenu({ children }: React.PropsWithChildren) {
 
       {/* ポップアップメニュー */}
       {open && (
-        <div className="absolute left-0 w-48 rounded-xl shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50">
+        <div className="absolute left-0 w-48 rounded-xl shadow-lg bg-white dark:bg-slate-600 ring-1 ring-black ring-opacity-5 z-50">
           <div className="py-2">
             <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700">
               メニュー1
@@ -44,6 +44,7 @@ export default function HamburgerMenu({ children }: React.PropsWithChildren) {
             <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700">
               メニュー3
             </button>
+            {children}
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ import "./style.css"
 import CopyButton from "~components/CopyButton"
 import ErrorBox from "~components/ErrorBox"
 import HamburgerMenu from "~components/HamburgerMenu"
+import HamburgerMenuLinkItem from "~components/HamburgerMenuLinkItem"
 import Page from "~components/Page"
 import Spinner from "~components/Spinner"
 import useCardSearch from "~hooks/useCardSearch"
@@ -37,7 +38,11 @@ function IndexPopup() {
     <Page>
       <div className="flex flex-col gap-2 items-center">
         <div className="flex items-left w-full">
-          <HamburgerMenu>Hello Menu</HamburgerMenu>
+          <HamburgerMenu>
+            <HamburgerMenuLinkItem href="https://google.com">
+              Hello Menu
+            </HamburgerMenuLinkItem>
+          </HamburgerMenu>
         </div>
         <div className="flex gap-2">
           <SearchBox
