@@ -35,6 +35,12 @@
   "manifest": {
     "host_permissions": [
       "https://*/*"
-    ]
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "{e510c20c-eab1-417e-bb2b-caa3241f00f4}",
+        "strict_min_version": "58.0"
+      }
+    }
   }
 }
